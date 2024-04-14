@@ -4,7 +4,8 @@ import mx.ciencias.ArbolRojinegro;
 import mx.ciencias.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class LectorQuijote{
 
@@ -24,16 +25,31 @@ public class LectorQuijote{
 	}
 	lectura.close();
 	}
-	catch(Exception E){
-	    System.out.println(E);
+	catch(IOException e){
+	    e.printStackTrace(); 
+            System.exit(1);
 	}
-	System.out.println("Número de palabtras diferentes: "+ diccionario.size());
-	arbol.dfsInOrder(new  AccionVerticeArbolBinario<String>(){
+	try{
+	    FileWriter writer = new FileWriter("Resultado.txt");
+	    writer.write("Número de palabtras diferentes: "+ diccionario.size() + "\n");
+	    arbol.dfsInOrder(new  AccionVerticeArbolBinario<String>(){
 		 @Override
 		 public void actua(VerticeArbolBinario<String> vertice){
-		     System.out.println(vertice.get() + ": " + diccionario.get(vertice.get()));
+		     try{
+			 System.out.println(vertice.get() + ": " + diccionario.get(vertice.get()));
+			 writer.write(vertice.get() + ": " + diccionario.get(vertice.get()) + "\n");
+			 
+		     } catch(IOException e){
+			 e.printStackTrace();
+			 System.exit(1);
+		     }
 		 }
 	    });
+	    writer.close();
+	} catch(IOException e){
+	    e.printStackTrace();
+            System.exit(1);
+	}
     }
 
     private static void analizaLinea(String linea, ArbolRojinegro arbol, HashMap<String,Integer> dicc){
