@@ -7,7 +7,6 @@ mx/ciencias/lectorQuijote/LectorQuijote$1.class
 mx/ciencias/ArbolBinario$Vertice.class
 mx/ciencias/Color.class
 mx/ciencias/VerticeArbolBinario.class
-mx/ciencias/ArbolAVL.class
 mx/ciencias/ArbolBinarioCompleto.class
 mx/ciencias/ArbolBinario.class
 mx/ciencias/lectorQuijote/LectorQuijote.class
@@ -17,5 +16,4 @@ mx/ciencias/Pila.class
 mx/ciencias/ArbolBinarioCompleto$Iterador.class
 mx/ciencias/MeteSaca.class
 mx/ciencias/ArbolBinarioOrdenado.class
-mx/ciencias/ArbolAVL$VerticeAVL.class
 mx/ciencias/Coleccion.class
