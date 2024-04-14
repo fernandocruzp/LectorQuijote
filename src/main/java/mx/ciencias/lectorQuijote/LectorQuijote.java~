@@ -1,0 +1,40 @@
+package mx.ciencias.lectorQuijote;
+
+import mx.ciencias.ArbolRojinegro;
+import java.util.Hashmap;
+
+public class LectorQuijote{
+
+    public static void main(String args[]){
+	if(args == 0){
+	    System.out.println("Introduzca un archivo a leer");
+	    System.exit(0);
+	}
+
+	ArbolRojinegro arbol= new ArbolRojinegro();
+	Hashmap <String, Integer> diccionario= new Hashmap<String,Integer>();
+	BufferedReader lectura = new BufferedReader(new FileReader(s));
+	String linea="";
+	while((linea=lectura.readLine()) != null){
+	    analizaLinea(linea,arbol,diccionario);
+	}
+	lectura.close();
+	for(String a: diccionario.keySet()){
+	    System.out.prinln(a + " "+ dicc.get(a));
+	}
+    }
+
+    private static void analizaLinea(String linea, ArbolRojinegro arbol, Hashmap dicc){
+	String[] lista = linea.split(' ');
+	for (String s: lista){
+	    Integer num= dicc.get(s);
+	    if(num==null){
+		arbol.agrega(s);
+		dicc.put(s,1);
+	    }
+	    else
+		dicc.replace(s,num+1);
+	}
+    }
+
+}
