@@ -36,7 +36,6 @@ public class LectorQuijote{
 		 @Override
 		 public void actua(VerticeArbolBinario<String> vertice){
 		     try{
-			 System.out.println(vertice.get() + ": " + diccionario.get(vertice.get()));
 			 writer.write(vertice.get() + ": " + diccionario.get(vertice.get()) + "\n");
 			 
 		     } catch(IOException e){
@@ -46,6 +45,7 @@ public class LectorQuijote{
 		 }
 	    });
 	    writer.close();
+	    System.out.println("Lista escrita en Resultado.txt");
 	} catch(IOException e){
 	    e.printStackTrace();
             System.exit(1);
